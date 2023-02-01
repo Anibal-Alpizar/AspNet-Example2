@@ -4,14 +4,33 @@
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+@using (@Html.BeginForm("Index", "Home", FormMethod.Post))
+{
+    <table>
+        <tr>
+            <td>@Html.Label("RollNo")</td>
+            <td>@Html.TextBox("RollNo")</td>
+        </tr>
+        <tr>
+            <td>@Html.Label("Name")</td>
+            <td>@Html.TextBox("Name")</td>
+        </tr>
+        <tr>
+            <td>@Html.Label("Gender")</td>
+            <td>
+                Male:@Html.RadioButton("Male", "M")
+                Female:@Html.RadioButton("Female", "F", true)
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.Label("City")</td>
+            <td>@Html.TextBox("City")</td>
+        </tr>
+        <tr>
+            <td>@Html.Label("Address")</td>
+            <td>@Html.Editor("Address")</td>
+        </tr>
+        <tr><td></td><td><input type="submit" value="Submit" /></td></tr>
+    </table>
+}
